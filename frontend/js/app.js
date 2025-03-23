@@ -1,10 +1,10 @@
 document.addEventListener("DOMContentLoaded", function() {
     var app = $.spapp({
-        defaultView: "home",  // Ensures #home loads by default
-        templateDir: "views/" // Loads files from /views/
+        defaultView: "home",  
+        templateDir: "views/" 
     });
 
-    // Define routes for all pages
+    // Defining routes for all pages
     app.route({ view: "home", load: "home.html" });
     app.route({ view: "dashboard", load: "dashboard.html" });
     app.route({ view: "events", load: "events.html" });
