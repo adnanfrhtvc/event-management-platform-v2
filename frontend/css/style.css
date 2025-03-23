@@ -1,0 +1,38 @@
+/* Custom styles for landing page */
+.card {
+    margin-bottom: 20px;
+  }
+  
+  .card-img-top {
+    height: 200px;
+    object-fit: cover;
+  }
+/* Ensure the page takes the full height */
+html, body {
+    height: 100%;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+/* The main content container should expand to fill space */
+#pageContent {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Ensure the main section takes up all available space */
+main {
+    flex: 1;
+}
+
+/* Footer Styling */
+footer {
+    background-color: #f8f9fa; /* Light grey background */
+    text-align: center;
+    padding: 15px;
+    width: 100%;
+    position: relative;
+    bottom: 0;
+}

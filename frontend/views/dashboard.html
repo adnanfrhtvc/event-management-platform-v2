@@ -1,0 +1,48 @@
+<link rel="stylesheet" href="css/dashboard.css">
+<section id="dashboard">
+    <div class="dashboard-container">
+        <h2>Organizer Dashboard</h2>
+
+        <!-- Event Stats -->
+        <div class="stats-container">
+            <div class="stat-card">
+                <h3>Total Events</h3>
+                <p id="total-events">0</p>
+            </div>
+            <div class="stat-card">
+                <h3>Upcoming Events</h3>
+                <p id="upcoming-events">0</p>
+            </div>
+            <div class="stat-card">
+                <h3>Past Events</h3>
+                <p id="past-events">0</p>
+            </div>
+        </div>
+
+        <!-- Quick Actions -->
+        <div class="quick-actions">
+            <a href="#create_event" class="btn">Create New Event</a>
+            <a href="#events" class="btn">View All Events</a>
+        </div>
+
+        <!-- Recent Events -->
+        <div class="recent-events">
+            <h3>Recent Events</h3>
+            <table class="event-table">
+                <thead>
+                    <tr>
+                        <th>Title</th>
+                        <th>Date</th>
+                        <th>Location</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody id="event-list">
+                    <tr>
+                        <td colspan="4">No events available.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</section>

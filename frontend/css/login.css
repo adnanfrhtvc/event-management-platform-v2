@@ -1,0 +1,26 @@
+/* Login container */
+.login-container {
+    min-height: calc(100vh - 80px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 20px;
+    padding-bottom: 40px;
+  }
+  
+  .hero {
+      background: #007bff;
+      color: white;
+      text-align: center;
+    }
+    
+    .card {
+      margin-bottom: 20px;
+    }
+    
+    .card-img-top {
+      object-fit: cover;
+      height: 200px;
+    }
+  
+  
