@@ -1,0 +1,78 @@
+/* Edit Event Page Styles */
+.eventedit-container {
+    max-width: 800px;
+    margin: 50px auto;
+    padding: 20px;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .eventedit-title {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 24px;
+    font-weight: bold;
+    color: #333;
+  }
+  
+  .eventedit-form label {
+    font-weight: bold;
+    margin-top: 10px;
+    display: block;
+  }
+  
+  .eventedit-form input,
+  .eventedit-form textarea,
+  .eventedit-form select {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+  }
+  
+  .eventedit-form textarea {
+    resize: vertical;
+    min-height: 120px;
+  }
+  
+  .eventedit-buttons {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+  }
+  
+  .eventedit-buttons .btn {
+    width: 48%;
+  }
+  
+  .eventedit-btn-save {
+    background-color: #28a745;
+    color: white;
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+  }
+  
+  .eventedit-btn-save:hover {
+    background-color: #218838;
+  }
+  
+  .eventedit-btn-cancel {
+    background-color: #dc3545;
+    color: white;
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+  }
+  
+  .eventedit-btn-cancel:hover {
+    background-color: #c82333;
+  }
+  

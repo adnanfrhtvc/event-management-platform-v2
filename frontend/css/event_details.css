@@ -1,0 +1,108 @@
+/* Event details css */
+/* Container styling */
+.eventdetails-container {
+    max-width: 900px;
+    margin: auto;
+    padding: 20px;
+  }
+  
+  /* Event Image */
+  .eventdetails-image {
+    width: 100%;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Event Title */
+  .eventdetails-title {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 10px;
+  }
+  
+  /* Event Info */
+  .eventdetails-info {
+    font-size: 1.1rem;
+    color: #666;
+    margin-bottom: 10px;
+  }
+  
+  /* Event Description */
+  .eventdetails-description {
+    font-size: 1.2rem;
+    color: #444;
+    line-height: 1.6;
+    margin-top: 15px;
+  }
+  
+  /* Buttons */
+  .eventdetails-buttons {
+    margin-top: 20px;
+  }
+  
+  .eventdetails-buttons .btn {
+    padding: 10px 20px;
+    font-size: 1rem;
+    border-radius: 5px;
+    transition: all 0.3s ease-in-out;
+  }
+  
+  .eventdetails-buttons .btn-primary {
+    background-color: #007bff;
+    border: none;
+  }
+  
+  .eventdetails-buttons .btn-primary:hover {
+    background-color: #0056b3;
+  }
+  
+  .eventdetails-buttons .btn-warning {
+    background-color: #ffc107;
+    border: none;
+  }
+  
+  .eventdetails-buttons .btn-warning:hover {
+    background-color: #e0a800;
+  }
+  
+  .eventdetails-buttons .btn-danger {
+    background-color: #dc3545;
+    border: none;
+  }
+  
+  .eventdetails-buttons .btn-danger:hover {
+    background-color: #c82333;
+  }
+  
+  /* Agenda Styling */
+  .eventdetails-agenda {
+    margin-top: 30px;
+  }
+  
+  .eventdetails-agenda h4 {
+    font-size: 1.5rem;
+    color: #222;
+    margin-bottom: 10px;
+  }
+  
+  .eventdetails-agenda ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .eventdetails-agenda li {
+    background: #f8f9fa;
+    padding: 10px;
+    margin-bottom: 8px;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Responsive */
+  @media (max-width: 768px) {
+    .eventdetails-container {
+        padding: 10px;
+    }
+  }
+  

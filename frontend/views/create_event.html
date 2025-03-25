@@ -1,0 +1,60 @@
+<link rel="stylesheet" href="css/create_event.css">
+<section id="create-event">
+  <div class="create-event-container">
+      <h2>Create an Event</h2>
+      <form action="#" method="POST" enctype="multipart/form-data" class="create-event-form">
+          
+          <div class="form-left">
+              <!-- Event Title -->
+              <div class="form-group">
+                  <label for="title">Event Title</label>
+                  <input type="text" id="title" name="title" placeholder="Enter event title" class="form-control" required>
+              </div>
+
+              <!-- Event Location -->
+              <div class="form-group">
+                  <label for="location">Event Location</label>
+                  <input type="text" id="location" name="location" placeholder="Enter event location" class="form-control" required>
+              </div>
+
+              <!-- Event Date -->
+              <div class="form-group">
+                  <label for="event_date">Event Date</label>
+                  <input type="datetime-local" id="event_date" name="event_date" class="form-control" required>
+              </div>
+
+              <!-- Event Category -->
+              <div class="form-group">
+                  <label for="category_id">Event Category</label>
+                  <select id="category_id" name="category_id" class="form-control" required>
+                      <option value="">Select Category</option>
+                      <option value="1">Music</option>
+                      <option value="2">Conference</option>
+                      <option value="3">Sports</option>
+                      <option value="4">Workshop</option>
+                  </select>
+              </div>
+
+              <!-- Event Photos -->
+              <div class="form-group">
+                  <label for="photos">Event Photos (optional)</label>
+                  <input type="file" id="photos" name="photos" accept="image/*" multiple class="form-control">
+              </div>
+          </div>
+
+          <div class="form-right">
+              <!-- Event Description -->
+              <div class="form-group description-group">
+                  <label for="description">Event Description</label>
+                  <textarea id="description" name="description" placeholder="Enter event description" class="form-control" required></textarea>
+              </div>
+
+              <!-- Submit Button -->
+              <div class="form-group text-center">
+                  <button type="submit" class="btn btn-primary">Create Event</button>
+              </div>
+          </div>
+          
+      </form>
+  </div>
+</section>
