@@ -13,6 +13,14 @@ class CategoryDao extends BaseDao {
         return $stmt->fetch(PDO::FETCH_ASSOC); 
     }
 
+    // Get by Name added per suggestion
+    public function getByName($name) {
+        $stmt = $this->connection->prepare("SELECT * FROM categories WHERE name = :name");
+        $stmt->bindParam(':name', $name);
+        $stmt->execute();
+        return $stmt->fetch(PDO::FETCH_ASSOC);
+    }
+
     public function insert($category) {
         return parent::insert($category);
     }
