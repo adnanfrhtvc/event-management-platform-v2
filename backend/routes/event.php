@@ -50,6 +50,7 @@ Flight::route('GET /api/events/@id', function ($id) use ($eventService) {
  *     path="/api/events",
  *     tags={"Events"},
  *     summary="Create new event",
+ *     security={{"Authentication": {}}},
  *     @OA\RequestBody(
  *         required=true,
  *         @OA\JsonContent(
@@ -66,6 +67,8 @@ Flight::route('GET /api/events/@id', function ($id) use ($eventService) {
 Flight::route('POST /api/events', function () use ($eventService) {
     $data = Flight::request()->data->getData();
     try {
+        Flight::auth_middleware()->authorizeRole(Roles::ADMIN);
+        
         $newEvent = $eventService->createEvent($data);
         Flight::json($newEvent, 201);
     } catch (Exception $e) {
@@ -79,6 +82,7 @@ Flight::route('POST /api/events', function () use ($eventService) {
  *     path="/api/events/{id}",
  *     tags={"Events"},
  *     summary="Update event by ID",
+ *     security={{"Authentication": {}}},
  *     @OA\Parameter(
  *         name="id",
  *         in="path",
@@ -101,6 +105,8 @@ Flight::route('POST /api/events', function () use ($eventService) {
 Flight::route('PUT /api/events/@id', function ($id) use ($eventService) {
     $data = Flight::request()->data->getData();
     try {
+        Flight::auth_middleware()->authorizeRole(Roles::ADMIN);
+
         $updated = $eventService->updateEvent($id, $data);
         Flight::json($updated);
     } catch (Exception $e) {
@@ -114,6 +120,7 @@ Flight::route('PUT /api/events/@id', function ($id) use ($eventService) {
  *     path="/api/events/{id}",
  *     tags={"Events"},
  *     summary="Delete event by ID",
+ *     security={{"Authentication": {}}},
  *     @OA\Parameter(
  *         name="id",
  *         in="path",
@@ -127,6 +134,8 @@ Flight::route('PUT /api/events/@id', function ($id) use ($eventService) {
  */
 Flight::route('DELETE /api/events/@id', function ($id) use ($eventService) {
     try {
+        Flight::auth_middleware()->authorizeRole(Roles::ADMIN);
+
         $eventService->deleteEvent($id);
         Flight::json(['message' => 'Event deleted']);
     } catch (Exception $e) {

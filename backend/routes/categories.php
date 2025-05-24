@@ -67,6 +67,7 @@ Flight::route('GET /api/categories/@id', function($id) use ($categoryService) {
 *     path="/api/categories",
 *     tags={"categories"},
 *     summary="Add a new category",
+*     security={{"Authentication": {}}},
 *     @OA\RequestBody(
 *         required=true,
 *         @OA\JsonContent(
@@ -88,6 +89,7 @@ Flight::route('GET /api/categories/@id', function($id) use ($categoryService) {
 Flight::route('POST /api/categories', function() use ($categoryService) {
     $data = Flight::request()->data->getData();
     try {
+        Flight::auth_middleware()->authorizeRole(Roles::ADMIN);
         $category = $categoryService->createCategory($data);
         Flight::json($category, 201);
     } catch (Exception $e) {
@@ -101,6 +103,7 @@ Flight::route('POST /api/categories', function() use ($categoryService) {
 *     path="/api/categories/{id}",
 *     tags={"categories"},
 *     summary="Update an existing category by ID",
+*     security={{"Authentication": {}}},
 *     @OA\Parameter(
 *         name="id",
 *         in="path",
@@ -129,6 +132,7 @@ Flight::route('POST /api/categories', function() use ($categoryService) {
 Flight::route('PUT /api/categories/@id', function($id) use ($categoryService) {
     $data = Flight::request()->data->getData();
     try {
+        Flight::auth_middleware()->authorizeRole(Roles::ADMIN);
         $category = $categoryService->updateCategory($id, $data);
         Flight::json($category);
     } catch (Exception $e) {
@@ -142,6 +146,7 @@ Flight::route('PUT /api/categories/@id', function($id) use ($categoryService) {
 *     path="/api/categories/{id}",
 *     tags={"categories"},
 *     summary="Delete a category by ID",
+*     security={{"Authentication": {}}},
 *     @OA\Parameter(
 *         name="id",
 *         in="path",
@@ -161,6 +166,7 @@ Flight::route('PUT /api/categories/@id', function($id) use ($categoryService) {
 */
 Flight::route('DELETE /api/categories/@id', function($id) use ($categoryService) {
     try {
+        Flight::auth_middleware()->authorizeRole(Roles::ADMIN);
         $categoryService->deleteCategory($id);
         Flight::json(["message" => "Category deleted"]);
     } catch (Exception $e) {

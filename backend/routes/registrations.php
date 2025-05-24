@@ -36,8 +36,18 @@ $registrationService = new RegistrationService($registrationDao, $userDao, $even
 * )
 */
 Flight::route('GET /api/users/@user_id/registrations', function($user_id) use ($registrationService) {
-    $registrations = $registrationService->getRegistrationsByUserId($user_id);
-    Flight::json($registrations);
+    try {
+        $currentUser = Flight::get('user'); 
+        
+        if ($currentUser->role !== Roles::ADMIN && $currentUser->id != $user_id) {
+            Flight::halt(403, json_encode(['error' => 'Forbidden: Access denied']));
+        }
+
+        $registrations = $registrationService->getRegistrationsByUserId($user_id);
+        Flight::json($registrations);
+    } catch (Exception $e) {
+        Flight::halt($e->getCode(), $e->getMessage());
+    }
 });
 
 // Get all registrations for an event
@@ -64,8 +74,15 @@ Flight::route('GET /api/users/@user_id/registrations', function($user_id) use ($
 * )
 */
 Flight::route('GET /api/events/@event_id/registrations', function($event_id) use ($registrationService) {
-    $registrations = $registrationService->getRegistrationsByEventId($event_id);
-    Flight::json($registrations);
+    try {
+        
+        Flight::auth_middleware()->authorizeRole(Roles::ADMIN);
+        
+        $registrations = $registrationService->getRegistrationsByEventId($event_id);
+        Flight::json($registrations);
+    } catch (Exception $e) {
+        Flight::halt($e->getCode(), $e->getMessage());
+    }
 });
 
 // Register user for event
@@ -97,8 +114,15 @@ Flight::route('GET /api/events/@event_id/registrations', function($event_id) use
 * )
 */
 Flight::route('POST /api/registrations', function() use ($registrationService) {
-    $data = Flight::request()->data->getData();
     try {
+        $currentUser = Flight::get('user');
+        $data = Flight::request()->data->getData();
+        
+        // If user is not admin, enforce self-registration
+        if ($currentUser->role !== Roles::ADMIN && $currentUser->id != $data['user_id']) {
+            Flight::halt(403, json_encode(['error' => 'Forbidden: You can only register yourself']));
+        }
+
         $registrationId = $registrationService->registerUser($data['user_id'], $data['event_id']);
         Flight::json(["id" => $registrationId], 201);
     } catch (Exception $e) {
@@ -131,8 +155,15 @@ Flight::route('POST /api/registrations', function() use ($registrationService) {
 * )
 */
 Flight::route('DELETE /api/registrations', function() use ($registrationService) {
-    $data = Flight::request()->data->getData();
     try {
+        $currentUser = Flight::get('user');
+        $data = Flight::request()->data->getData();
+        
+        // If user is not admin, enforce self-unregistration
+        if ($currentUser->role !== Roles::ADMIN && $currentUser->id != $data['user_id']) {
+            Flight::halt(403, json_encode(['error' => 'Forbidden: You can only unregister yourself']));
+        }
+
         $result = $registrationService->unregisterUser($data['user_id'], $data['event_id']);
         Flight::json($result);
     } catch (Exception $e) {

@@ -27,6 +27,20 @@ main {
     flex: 1;
 }
 
+/* Ensure proper navbar spacing */
+.navbar-nav {
+    flex-direction: row;
+}
+
+.nav-item {
+    margin-right: 1rem;
+}
+
+#admin-links {
+    display: flex;
+    gap: 1rem;
+}
+
 
 footer {
     background-color: #f8f9fa; 

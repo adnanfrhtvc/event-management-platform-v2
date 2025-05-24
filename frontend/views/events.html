@@ -1,40 +1,14 @@
 <body>
     <div class="container mt-5">
-      <div class="row">
-        <!-- Card 1 -->
-        <div class="col-md-4 mb-4">
-          <div class="card">
-            <img src="static/quiz.jpg" class="card-img-top" alt="Card image 1">
-            <div class="card-body">
-              <h5 class="card-title">Card 1</h5>
-              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-              <a href="#event_details" class="btn btn-primary">Go somewhere</a>
+        <div class="row" id="events-container">
+            <!-- Loading spinner -->
+            <div class="col-12 text-center">
+                <div class="spinner-border text-primary" role="status">
+                    <span class="visually-hidden">Loading Events...</span>
+                </div>
             </div>
-          </div>
         </div>
-        <!-- Card 2 -->
-        <div class="col-md-4 mb-4">
-          <div class="card">
-            <img src="static/music_festival.jpg" class="card-img-top" alt="Card image 2">
-            <div class="card-body">
-              <h5 class="card-title">Card 2</h5>
-              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-              <a href="#event_details" class="btn btn-primary">Go somewhere</a>
-            </div>
-          </div>
-        </div>
-        <!-- Card 3 -->
-        <div class="col-md-4 mb-4">
-          <div class="card">
-            <img src="static/startup.png" class="card-img-top" alt="Card image 3">
-            <div class="card-body">
-              <h5 class="card-title">Card 3</h5>
-              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-              <a href="#event_details" class="btn btn-primary">Go somewhere</a>
-            </div>
-          </div>
-        </div>
-      </div>
     </div>
-  
-  </body>
+
+    <script src="../frontend/js/pages/events.js"></script>
+</body>

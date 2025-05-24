@@ -44,6 +44,7 @@ Flight::route('GET /api/events/@event_id/tickets', function($event_id) use ($tic
 *     path="/api/events/{event_id}/tickets",
 *     tags={"tickets"},
 *     summary="Create tickets for an event",
+*     security={{"Authentication": {}}},
 *     @OA\Parameter(
 *         name="event_id",
 *         in="path",
@@ -72,6 +73,9 @@ Flight::route('GET /api/events/@event_id/tickets', function($event_id) use ($tic
 Flight::route('POST /api/events/@event_id/tickets', function($event_id) use ($ticketService) {
     $data = Flight::request()->data->getData();
     try {
+        
+        Flight::auth_middleware()->authorizeRole(Roles::ADMIN);
+
         $price = $data['price'];
         $total_tickets = $data['total_tickets'];
         $ticketId = $ticketService->createTicket($event_id, $price, $total_tickets);
@@ -87,6 +91,7 @@ Flight::route('POST /api/events/@event_id/tickets', function($event_id) use ($ti
 *     path="/api/events/{event_id}/tickets/remaining",
 *     tags={"tickets"},
 *     summary="Update remaining tickets for an event",
+*     security={{"Authentication": {}}},
 *     @OA\Parameter(
 *         name="event_id",
 *         in="path",
@@ -114,6 +119,9 @@ Flight::route('POST /api/events/@event_id/tickets', function($event_id) use ($ti
 Flight::route('PUT /api/events/@event_id/tickets/remaining', function($event_id) use ($ticketService) {
     $data = Flight::request()->data->getData();
     try {
+        
+        Flight::auth_middleware()->authorizeRole(Roles::ADMIN);
+
         $tickets_sold = $data['tickets_sold'];
         $updatedTickets = $ticketService->updateRemainingTickets($event_id, $tickets_sold);
         Flight::json($updatedTickets);
@@ -128,6 +136,7 @@ Flight::route('PUT /api/events/@event_id/tickets/remaining', function($event_id)
 *     path="/api/events/{event_id}/tickets",
 *     tags={"tickets"},
 *     summary="Delete all tickets for an event",
+*     security={{"Authentication": {}}},
 *     @OA\Parameter(
 *         name="event_id",
 *         in="path",
@@ -147,6 +156,9 @@ Flight::route('PUT /api/events/@event_id/tickets/remaining', function($event_id)
 */
 Flight::route('DELETE /api/events/@event_id/tickets', function($event_id) use ($ticketService) {
     try {
+        
+        Flight::auth_middleware()->authorizeRole(Roles::ADMIN);
+
         $result = $ticketService->deleteTicketsByEventId($event_id);
         Flight::json($result);
     } catch (Exception $e) {
