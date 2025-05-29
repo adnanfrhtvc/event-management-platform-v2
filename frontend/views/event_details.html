@@ -3,42 +3,35 @@
     <div class="row">
         <!-- Event Image -->
         <div class="col-md-6">
-            <img src="static/fls.jpg" class="eventdetails-image" alt="Event Image">
+            <img src="static/fls.jpg" class="eventdetails-image" alt="Event Image" id="event-image">
         </div>
 
         <!-- Event Details -->
         <div class="col-md-6">
-            <h1 class="eventdetails-title" id="event-title">Tech Conference 2025</h1>
-            <p class="eventdetails-info"><strong>Date:</strong> <span id="event-date">March 25, 2025</span></p>
-            <p class="eventdetails-info"><strong>Location:</strong> <span id="event-location">San Francisco, CA</span></p>
-            <p class="eventdetails-description" id="event-description">
-                This is a premier tech conference featuring leading industry experts, workshops, and networking opportunities.
-            </p>
+            <h1 class="eventdetails-title" id="event-title">Loading Event...</h1>
+            <p class="eventdetails-info"><strong>Date:</strong> <span id="event-date">...</span></p>
+            <p class="eventdetails-info"><strong>Location:</strong> <span id="event-location">...</span></p>
+            <p class="eventdetails-info"><strong>Organizer:</strong> <span id="event-organizer">...</span></p>
+            <p class="eventdetails-description" id="event-description">...</p>
 
-            <!-- Buttons for Regular Users -->
-            <div class="eventdetails-buttons" id="user-buttons">
-                <button class="btn btn-primary">Book a Ticket</button>
-            </div>
-
-            <!-- Buttons for Organizer Role -->
-            <div class="eventdetails-buttons mt-3" id="organizer-buttons">
-                <a href="#edit_event" class="btn btn-warning">Edit Event</a>
-                <button class="btn btn-danger">Delete Event</button>
+            <!-- Buttons Section -->
+            <div id="buttons-container" class="mt-4">
+                <!-- Dynamic buttons will be inserted here -->
             </div>
         </div>
     </div>
 
     <!-- Additional Details -->
     <div class="eventdetails-agenda mt-5">
-        <h3>About This Event</h3>
-        <p>
-            The Tech Conference 2025 is the leading event for technology professionals, featuring keynote speakers from top companies.
-        </p>
-        <h4>Agenda</h4>
-        <ul>
-            <li>10:00 AM - Opening Keynote</li>
-            <li>12:00 PM - Panel Discussion: The Future of AI</li>
-            <li>3:00 PM - Networking & Workshops</li>
+        <h3>Event Schedule</h3>
+        <div id="event-schedule">
+            <!-- Schedule items will be populated dynamically -->
+        </div>
+        
+        <h4 class="mt-4">Additional Information</h4>
+        <ul id="event-additional-info" class="list-group">
+            <!-- Additional info items will be populated here -->
         </ul>
     </div>
 </div>
+<script src="js/pages/event_details.js"></script>

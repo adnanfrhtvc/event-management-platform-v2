@@ -1,5 +1,15 @@
 RewriteEngine On
 RewriteBase /event-management-platform-v2/backend/
+
+# First, handle static files
+RewriteCond %{REQUEST_URI} \.(jpg|jpeg|png|gif|css|js)$ [NC]
+RewriteCond %{REQUEST_FILENAME} -f
+RewriteRule ^ - [L]
+
+# Exclude frontend static directory
+RewriteCond %{REQUEST_URI} !^/event-management-platform-v2/frontend/static/ [NC]
+
+# Existing dynamic routing
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteRule ^(.*)$ index.php [QSA,L]

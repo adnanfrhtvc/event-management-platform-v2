@@ -1,61 +1,21 @@
 <div class="container mt-4">
   <!-- Categories Section -->
-  <section id="categories" class="mb-4">
-      <h2 class="text-center">Explore by Category</h2>
-      <div class="d-flex flex-wrap justify-content-center gap-3 mt-3">
-          <button class="btn btn-primary">Concerts</button>
-          <button class="btn btn-secondary">Conferences</button>
-          <button class="btn btn-success">Workshops</button>
-          <button class="btn btn-danger">Sports</button>
-          <button class="btn btn-warning">Festivals</button>
-      </div>
-  </section>
+  <!-- Categories Section -->
+    <section id="categories" class="mb-4">
+        <h2 class="text-center">You can find these types of events on our page</h2>
+        <div id="category-buttons" class="d-flex flex-wrap justify-content-center gap-3 mt-3">
+        <!-- Dynamic category buttons will be injected here -->
+        </div>
+    </section>
+
 
   <!-- Upcoming Events Section -->
-  <section id="upcoming-events">
-      <h2 class="text-center mb-4">Upcoming Events</h2>
-      <div class="row row-cols-1 row-cols-md-3 g-4">
-          <!-- Event Card 1 -->
-          <div class="col">
-              <div class="card shadow">
-                  <img src="static/music_festival.jpg" class="card-img-top" alt="Event 1">
-                  <div class="card-body">
-                      <h5 class="card-title">Music Festival 2025</h5>
-                      <p class="card-text">Join us for an unforgettable music festival with top artists.</p>
-                      <p><strong>Location:</strong> New York, USA</p>
-                      <p><strong>Date:</strong> April 15, 2025</p>
-                      <a href="#event_details" class="btn btn-primary">More Details</a>
-                  </div>
-              </div>
-          </div>
-          <!-- Event Card 2 -->
-          <div class="col">
-              <div class="card shadow">
-                  <img src="static/fls.jpg" class="card-img-top" alt="Event 2">
-                  <div class="card-body">
-                      <h5 class="card-title">Tech Conference 2025</h5>
-                      <p class="card-text">Leading experts discuss the future of technology.</p>
-                      <p><strong>Location:</strong> San Francisco, USA</p>
-                      <p><strong>Date:</strong> May 10, 2025</p>
-                      <a href="#event_details" class="btn btn-primary">More Details</a>
-                  </div>
-              </div>
-          </div>
-          <!-- Event Card 3 -->
-          <div class="col">
-              <div class="card shadow">
-                  <img src="static/startup.png" class="card-img-top" alt="Event 3">
-                  <div class="card-body">
-                      <h5 class="card-title">Startup Pitch Night</h5>
-                      <p class="card-text">Watch top startups pitch their ideas to investors.</p>
-                      <p><strong>Location:</strong> London, UK</p>
-                      <p><strong>Date:</strong> June 5, 2025</p>
-                      <a href="#event_details" class="btn btn-primary">More Details</a>
-                  </div>
-              </div>
-          </div>
-      </div>
-  </section>
+    <section id="upcoming-events">
+        <h2 class="text-center mb-4">Upcoming Events</h2>
+        <div id="event-cards" class="row row-cols-1 row-cols-md-3 g-4">
+        <!-- Dynamic Event Cards Will Load Here -->
+        </div>
+    </section>
 
   <!-- About Section -->
   <section id="about" class="text-center mt-5">
@@ -66,3 +26,5 @@
       </p>
   </section>
 </div>
+
+
