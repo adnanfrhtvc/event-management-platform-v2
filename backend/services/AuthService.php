@@ -23,6 +23,16 @@ class AuthService {
             return ['success' => false, 'error' => 'Email already registered'];
         }
 
+        // Check password length
+        if (strlen($data['password']) < 6) {
+            return ['success' => false, 'error' => 'Password must be at least 6 characters'];
+        }
+
+        // Check name length
+        if (strlen($data['name']) < 2) {
+            return ['success' => false, 'error' => 'Name must be at least 2 characters'];
+        }
+
         // Hash password
         $data['password'] = password_hash($data['password'], PASSWORD_BCRYPT);
 
