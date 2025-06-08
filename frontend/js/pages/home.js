@@ -5,7 +5,7 @@ const homePage = {
 
         this.loadCategories();
 
-        fetch("http://localhost/event-management-platform-v2/backend/api/events")
+        fetch("https://eventease-v4kuo.ondigitalocean.app/backend/api/events")
             .then(response => response.json())
             .then(events => {
                 if (!Array.isArray(events)) return;
@@ -39,7 +39,7 @@ const homePage = {
     },
 
     loadCategories: function () {
-        fetch("http://localhost/event-management-platform-v2/backend/api/categories")
+        fetch("https://eventease-v4kuo.ondigitalocean.app/backend/api/categories")
             .then(response => response.json())
             .then(categories => {
                 if (!Array.isArray(categories)) return;
